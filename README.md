@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# PlaceRec - Recording Studio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современный веб-сайт студии звукозаписи, разработанный на React с использованием TypeScript. Проект демонстрирует услуги студии, портфолио работ и информацию о контактах.
 
-Currently, two official plugins are available:
+## Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 18** - библиотека для построения пользовательского интерфейса
+- **TypeScript** - типизированный JavaScript для безопасности типов
+- **Vite** - быстрый сборщик проектов
+- **React Router** - маршрутизация между страницами
+- **CSS3** - стилизация компонентов
+- **ESLint** - проверка качества кода
 
-## React Compiler
+## Структура проекта
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+src/
+├── components/          # Переиспользуемые компоненты
+│   ├── Header.tsx      # Заголовок и навигация
+│   ├── Layout.tsx      # Основной шаблон страницы
+│   ├── NavButton.tsx   # Кнопка навигации
+│   ├── ServiceItem.tsx # Компонент услуги
+│   └── Tag.tsx         # Тег/метка
+├── pages/              # Страницы приложения
+│   ├── Home.tsx        # Главная страница
+│   ├── Hero.tsx        # Секция героя
+│   ├── Services.tsx    # Описание услуг
+│   ├── Portfolio.tsx   # Портфолио работ
+│   ├── Studio.tsx      # Информация о студии
+│   ├── Contacts.tsx    # Форма контактов
+│   └── ErrorPage.tsx   # Страница ошибки 404
+├── assets/
+│   └── const.ts        # Константы приложения
+├── App.tsx             # Корневой компонент
+├── main.tsx            # Точка входа
+├── App.css             # Глобальные стили
+└── index.css           # Базовые стили
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+public/
+└── portfolio/          # Статические файлы портфолио
 
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Основные страницы
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Home** - главная страница с героем и обзором
+- **Services** - описание предоставляемых услуг студии
+- **Portfolio** - галерея выполненных работ
+- **Studio** - информация о студии и её оборудовании
+- **Contacts** - форма для связи и контактная информация
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Установка и запуск
 
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка для продакшена
+npm run build
+
+# Проверка кода ESLint
+npm run lint
 ```
+
+## Конфигурация
+
+- `vite.config.ts` - конфигурация Vite
+- `tsconfig.json` - конфигурация TypeScript
+- `eslint.config.js` - конфигурация линтера
