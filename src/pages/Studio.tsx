@@ -52,9 +52,7 @@ export default function Studio() {
     <section className={`bg-zinc-950 ${UI_CLASSES.section}`}>
       <div className={UI_CLASSES.sectionContainer}>
         <div className={UI_CLASSES.headingCenter}>
-          <h2 className={UI_CLASSES.title}>
-            Наши пространства
-          </h2>
+          <h2 className={UI_CLASSES.title}>Наши пространства</h2>
           <p className={UI_CLASSES.subtitle}>
             Выберите зал, который идеально подходит для ваших творческих задач.
             Мы обеспечили оба помещения топовым оборудованием.
@@ -70,13 +68,12 @@ export default function Studio() {
               {/* Image Section */}
               <div className="h-64 w-full flex items-center justify-center overflow-hidden relative bg-zinc-900">
                 <span className="text-zinc-600 font-medium tracking-widest w-full h-full flex items-center justify-center">
-                  <img src={room.imagePlaceholder} alt={room.name} className="object-cover w-full h-full" />
+                  <img
+                    src={room.imagePlaceholder}
+                    alt={room.name}
+                    className="object-cover w-full h-full"
+                  />
                 </span>
-                {room.isPro && (
-                  <span className="absolute top-4 right-4 bg-amber-500 text-zinc-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Premium
-                  </span>
-                )}
               </div>
 
               {/* Content Section */}
@@ -93,7 +90,7 @@ export default function Studio() {
                   </h4>
 
                   <div className="flex items-start gap-4">
-                    <Mic className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <Mic className={UI_CLASSES.studioIcon} />
                     <div>
                       <p className="text-sm text-zinc-400">Микрофон</p>
                       <p className="font-medium text-zinc-200">
@@ -103,7 +100,7 @@ export default function Studio() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Cpu className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <Cpu className={UI_CLASSES.studioIcon} />
                     <div>
                       <p className="text-sm text-zinc-400">Звуковая карта</p>
                       <p className="font-medium text-zinc-200">
@@ -113,7 +110,7 @@ export default function Studio() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Speaker className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <Speaker className={UI_CLASSES.studioIcon} />
                     <div>
                       <p className="text-sm text-zinc-400">Мониторы</p>
                       <p className="font-medium text-zinc-200">
@@ -123,7 +120,7 @@ export default function Studio() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Headphones className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                    <Headphones className={UI_CLASSES.studioIcon} />
                     <div>
                       <p className="text-sm text-zinc-400">Наушники</p>
                       <p className="font-medium text-zinc-200">
