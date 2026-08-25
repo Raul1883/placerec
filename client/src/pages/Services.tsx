@@ -1,17 +1,53 @@
 import { useState } from "react";
-import { Services } from "../assets/const";
 import Tag from "../components/Tag";
 import ServiceItem from "../components/ServiceItem";
+import { pb } from "../api/PocketBase";
+import useSWR from "swr";
+import type { Service } from "../types/types";
+
+const fetchServices = async () => {
+  return await pb.collection<Service>("Service").getFullList();
+};
 
 export default () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const { data, isLoading, error } = useSWR<Service[]>(
+    "fetchServices",
+    fetchServices,
+  );
 
   const toggleService = (id: string) => {
     setExpandedId((prevId) => (prevId === id ? null : id));
   };
 
-  const col1 = Services.filter((_, i) => i % 2 === 0);
-  const col2 = Services.filter((_, i) => i % 2 !== 0);
+  if (isLoading || error || !data) {
+    return (
+      <section id="services" className="px-6 py-24 gap-16 items-center">
+        <div className="order-2 lg:order-1">
+          <Tag>Услуги</Tag>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-8">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              <div
+                key={`service_${i}`}
+                className="border-b border-white/10 pb-6 select-none animate-pulse"
+              >
+                {/* Заголовок карточки (название + стрелка) */}
+                <div className="flex justify-between items-center text-2xl md:text-3xl font-bold">
+                  <div className="h-8 bg-white/10 rounded-md w-3/5"></div>
+                  <div className="h-6 w-6 bg-white/10 rounded-full"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const col1 = data.filter((_, i) => i % 2 === 0);
+  const col2 = data.filter((_, i) => i % 2 !== 0);
 
   return (
     <section id="services" className="px-6 py-24 gap-16 items-center">

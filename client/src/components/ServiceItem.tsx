@@ -1,17 +1,6 @@
-interface Services {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  description: string;
-}
-[];
-
-interface ItemsProps {
-  service: Services;
-  toggleService: (id: string) => void;
-  expandedId: string | null;
-}
+import { pb } from "../api/PocketBase";
+import type { ItemsProps } from "../types/types";
+import HtmlRender from "./HtmlRender";
 
 export default ({ service, toggleService, expandedId }: ItemsProps) => {
   const isOpen = expandedId === service.id;
@@ -45,14 +34,16 @@ export default ({ service, toggleService, expandedId }: ItemsProps) => {
         <div className="overflow-hidden flex flex-col gap-4">
           {service.image && (
             <img
-              src={service.image}
+              src={pb.files.getURL(service, service.image, {
+                thumb: "400x300",
+              })}
               alt={service.name}
               className="w-full h-48 object-cover rounded-xl mt-2 border border-white/10"
             />
           )}
 
           <p className="text-base md:text-lg font-normal text-zinc-300 leading-relaxed">
-            {service.description}
+            <HtmlRender htmlContent={service.description} />
           </p>
 
           <div className="flex items-center justify-between pt-2 border-t border-white/5">
