@@ -1,4 +1,5 @@
 import { Mic, Headphones, Speaker, Cpu, ArrowRight } from "lucide-react";
+import { UI_CLASSES } from "../assets/const";
 
 interface Equipment {
   mic: string;
@@ -22,7 +23,7 @@ const roomsData: StudioRoom[] = [
     name: "PLACE RECORDS BASE",
     description:
       "Идеальное пространство для записи вокала, создания демо-треков и подкастов. Комфортная акустика и проверенное оборудование.",
-    imagePlaceholder: "/studiobase.jpg", // Здесь будет url вашей картинки
+    imagePlaceholder: "/studiobase.jpg",
     equipment: {
       mic: "Warm Audio WA-14",
       card: "Audient iD14 MKII",
@@ -35,7 +36,7 @@ const roomsData: StudioRoom[] = [
     name: "PLACE RECORDS PRO",
     description:
       "Флагманская студия с бескомпромиссным звучанием. Подходит для профессионального сведения, мастеринга и сложных сессий звукозаписи.",
-    imagePlaceholder: "/studiopro.jpg", // Здесь будет url вашей картинки
+    imagePlaceholder: "/studiopro.jpg",
     isPro: true,
     equipment: {
       mic: "Warm Audio WA-14",
@@ -46,15 +47,15 @@ const roomsData: StudioRoom[] = [
   },
 ];
 
-export default () => {
+export default function Studio() {
   return (
-    <section className="bg-zinc-950 py-16 px-4 md:px-8 w-full min-h-screen text-zinc-100 font-sans">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+    <section className={`bg-zinc-950 ${UI_CLASSES.section}`}>
+      <div className={UI_CLASSES.sectionContainer}>
+        <div className={UI_CLASSES.headingCenter}>
+          <h2 className={UI_CLASSES.title}>
             Наши пространства
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+          <p className={UI_CLASSES.subtitle}>
             Выберите зал, который идеально подходит для ваших творческих задач.
             Мы обеспечили оба помещения топовым оборудованием.
           </p>
@@ -64,14 +65,12 @@ export default () => {
           {roomsData.map((room) => (
             <div
               key={room.id}
-              className={`relative flex flex-col rounded-2xl overflow-hidden border ${room.isPro ? "border-amber-500/30 bg-zinc-900/80" : "border-zinc-800 bg-zinc-900/50"} transition-all hover:border-zinc-600`}
+              className={`${UI_CLASSES.cardBase} ${room.isPro ? UI_CLASSES.cardPro : UI_CLASSES.cardDefault}`}
             >
               {/* Image Section */}
-              <div
-                className={`h-64 w-full flex items-center justify-center overflow-hidden  relative`}
-              >
-                <span className="text-zinc-600 font-medium tracking-widest">
-                  <img src={room.imagePlaceholder} />
+              <div className="h-64 w-full flex items-center justify-center overflow-hidden relative bg-zinc-900">
+                <span className="text-zinc-600 font-medium tracking-widest w-full h-full flex items-center justify-center">
+                  <img src={room.imagePlaceholder} alt={room.name} className="object-cover w-full h-full" />
                 </span>
                 {room.isPro && (
                   <span className="absolute top-4 right-4 bg-amber-500 text-zinc-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -136,7 +135,7 @@ export default () => {
 
                 {/* CTA Button */}
                 <button
-                  className={`w-full group flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium transition-colors ${room.isPro ? "bg-amber-500 hover:bg-amber-400 text-zinc-950" : "bg-zinc-100 hover:bg-white text-zinc-950"}`}
+                  className={`${UI_CLASSES.buttonBase} ${room.isPro ? UI_CLASSES.buttonPrimary : UI_CLASSES.buttonSecondary}`}
                 >
                   Забронировать
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -148,4 +147,4 @@ export default () => {
       </div>
     </section>
   );
-};
+}
