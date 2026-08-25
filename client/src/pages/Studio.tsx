@@ -49,7 +49,7 @@ const roomsData: StudioRoom[] = [
 
 export default function Studio() {
   return (
-    <section className={`bg-zinc-950 ${UI_CLASSES.section}`}>
+    <section id="about" className={`bg-zinc-950 ${UI_CLASSES.section}`}>
       <div className={UI_CLASSES.sectionContainer}>
         <div className={UI_CLASSES.headingCenter}>
           <h2 className={UI_CLASSES.title}>Наши пространства</h2>

@@ -2,7 +2,7 @@ import { UI_COLLORS } from "../assets/const";
 
 export default () => {
   return (
-    <footer className="py-12 px-6 ">
+    <footer id="contact" className="py-12 px-6 ">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div className="space-y-2">
           <div className="text-xl font-bold tracking-wider text-white uppercase">

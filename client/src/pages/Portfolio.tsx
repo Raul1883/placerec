@@ -101,7 +101,10 @@ export default () => {
   };
 
   return (
-    <section className="py-20 bg-neutral-950 text-white selection:bg-cyan-500 selection:text-black overflow-hidden">
+    <section
+      id="portfolio"
+      className="py-20 bg-neutral-950 text-white selection:bg-cyan-500 selection:text-black overflow-hidden"
+    >
       <div className="max-w-6xl mx-auto px-4">
         {/* Заголовок */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
