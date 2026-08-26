@@ -85,7 +85,7 @@ export default () => {
                   setSelectedCollectionKey(key);
                   setIsEditorOpen(false);
                 }}
-                className={`py-2 px-4 rounded-xl font-medium transition-colors cursor-pointer ${
+                className={`py-2 px-4 rounded-xl bg-cyan-500 font-medium transition-colors cursor-pointer ${
                   selectedCollectionKey === key
                     ? `bg-${UI_COLLORS.colorPrimary}-500 text-zinc-950`
                     : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { DynamicField } from "./FormField";
 import type { CollectionConfig } from "../../types/types";
 import { pb } from "../../api/PocketBase";
+import { UI_CLASSES } from "../../assets/const";
 
 interface Props {
   config: CollectionConfig;
@@ -51,23 +52,31 @@ export const DynamicEditor: React.FC<Props> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: 500 }}>
-      <h3>
-        {recordId ? "Редактировать" : "Создать"}: {config.title}
-      </h3>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
+        {config.fields.map((field) => (
+          <div key={field.name} className="flex flex-col gap-1.5">
+            <label className="text-sm font-medium text-zinc-300">
+              {field.label}
+            </label>
+            <DynamicField
+              field={field}
+              value={formData[field.name]}
+              onChange={handleFieldChange}
+            />
+          </div>
+        ))}
+      </div>
 
-      {config.fields.map((field) => (
-        <DynamicField
-          key={field.name}
-          field={field}
-          value={formData[field.name]}
-          onChange={handleFieldChange}
-        />
-      ))}
-
-      <button type="submit" disabled={loading}>
-        {loading ? "Сохранение..." : "Сохранить"}
-      </button>
+      <div className="flex justify-end gap-3 mt-6">
+        <button
+          type="submit"
+          disabled={loading}
+          className={`${UI_CLASSES.buttonBase} ${UI_CLASSES.buttonPrimary} w-auto px-6`}
+        >
+          {loading ? "Сохранение..." : "Сохранить"}
+        </button>
+      </div>
     </form>
   );
 };

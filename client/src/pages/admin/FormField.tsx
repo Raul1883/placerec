@@ -1,6 +1,7 @@
 // components/FormField.tsx
 import React from "react";
 import type { FieldConfig } from "../../types/types";
+import { RichTextEditor } from "./RichTextEditor";
 
 interface Props {
   field: FieldConfig;
@@ -38,11 +39,9 @@ export const DynamicField: React.FC<Props> = ({ field, value, onChange }) => {
       <label style={{ fontWeight: 600 }}>{field.label}</label>
 
       {field.type === "textarea" && (
-        <textarea
+        <RichTextEditor
           value={value || ""}
-          placeholder={field.placeholder}
           onChange={handleChange}
-          rows={4}
           className={inputStyle}
         />
       )}
