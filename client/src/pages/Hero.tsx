@@ -3,7 +3,7 @@ export default () => {
     <section className="relative isolate min-h-[85vh] md:min-h-screen px-6 py-20 md:py-32 flex flex-col justify-end overflow-hidden text-white">
       {/* 1. Слой самого изображения */}
       <img
-        src="/src/assets/hero.webp"
+        src="/hero.webp"
         alt="Интерьер студии"
         className="absolute inset-0 w-full h-full object-cover object-center -z-20"
       />

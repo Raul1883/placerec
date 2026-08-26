@@ -23,7 +23,7 @@ const roomsData: StudioRoom[] = [
     name: "PLACE RECORDS BASE",
     description:
       "Идеальное пространство для записи вокала, создания демо-треков и подкастов. Комфортная акустика и проверенное оборудование.",
-    imagePlaceholder: "/studiobase.jpg",
+    imagePlaceholder: "/studiobase.webp",
     equipment: {
       mic: "Warm Audio WA-14",
       card: "Audient iD14 MKII",
@@ -36,7 +36,7 @@ const roomsData: StudioRoom[] = [
     name: "PLACE RECORDS PRO",
     description:
       "Флагманская студия с бескомпромиссным звучанием. Подходит для профессионального сведения, мастеринга и сложных сессий звукозаписи.",
-    imagePlaceholder: "/studiopro.jpg",
+    imagePlaceholder: "/studiopro.webp",
     isPro: true,
     equipment: {
       mic: "Warm Audio WA-14",
