@@ -28,3 +28,27 @@ export interface CardProps {
   onTogglePlay: () => void;
   onToggleMute: () => void;
 }
+
+// types/admin.ts
+export type FieldType =
+  | "text"
+  | "number"
+  | "textarea"
+  | "image"
+  | "select"
+  | "video";
+
+export interface FieldConfig {
+  name: string;
+  label: string;
+  type: FieldType;
+  required?: boolean;
+  options?: { label: string; value: string }[]; // для select
+  placeholder?: string;
+}
+
+export interface CollectionConfig {
+  collectionName: string;
+  title: string;
+  fields: FieldConfig[];
+}

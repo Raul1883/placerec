@@ -7,57 +7,6 @@ import TgCircleCard, {
 import useSWR from "swr";
 import { pb } from "../api/PocketBase";
 
-const portfolioData: PortfolioItem[] = [
-  {
-    id: "1",
-    artist: "Shadowraze",
-    trackTitle: "Showdown",
-    service: "Сведение & Мастеринг",
-    videoUrl: "/portfolio/video.mp4",
-    duration: "0:45",
-  },
-  {
-    id: "2",
-    artist: "Jane Doe",
-    trackTitle: "Acoustic Sessions",
-    service: "Запись вокала",
-    videoUrl: "/portfolio/video2.mp4",
-    duration: "1:00",
-  },
-  {
-    id: "3",
-    artist: "Neon Wave",
-    trackTitle: "Cyber City",
-    service: "Продакшн под ключ",
-    videoUrl: "/portfolio/video3.mp4",
-    duration: "0:30",
-  },
-  {
-    id: "4",
-    artist: "Shadowraze",
-    trackTitle: "Showdown",
-    service: "Сведение & Мастеринг",
-    videoUrl: "/portfolio/video.mp4",
-    duration: "0:45",
-  },
-  {
-    id: "5",
-    artist: "Jane Doe",
-    trackTitle: "Acoustic Sessions",
-    service: "Запись вокала",
-    videoUrl: "/portfolio/video2.mp4",
-    duration: "1:00",
-  },
-  {
-    id: "6",
-    artist: "Neon Wave",
-    trackTitle: "Cyber City",
-    service: "Продакшн под ключ",
-    videoUrl: "/portfolio/video3.mp4",
-    duration: "0:30",
-  },
-];
-
 const fetchPortfolio = async () => {
   return await pb.collection<PortfolioItem>("Portfolio").getFullList({});
 };

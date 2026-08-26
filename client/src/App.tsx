@@ -1,7 +1,9 @@
 import "./App.css";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import ErrorPage from "./pages/ErrorPage";
+import AdminMainPage from "./pages/admin/AdminMainPage";
+import { ProtectedRoute } from "./pages/admin/ProtectedRoute";
+import Login from "./pages/admin/Login";
 
 function App() {
   return (
@@ -9,7 +11,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<ErrorPage />} />
+          <Route path="/admin/login" element={<Login />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminMainPage />} />
+          </Route>
+
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </>
