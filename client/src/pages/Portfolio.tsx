@@ -37,7 +37,7 @@ export default () => {
     checkScroll();
     window.addEventListener("resize", checkScroll);
     return () => window.removeEventListener("resize", checkScroll);
-  }, []);
+  }, [data, isLoading]);
 
   const handleScroll = (direction: "left" | "right") => {
     if (!scrollContainerRef.current) return;

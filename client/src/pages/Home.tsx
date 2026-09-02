@@ -13,7 +13,6 @@ const SonusStudio = () => {
 
       <div className="px-5">
         <Services />
-
         <Portfolio />
         <Studio />
         <Contacts />

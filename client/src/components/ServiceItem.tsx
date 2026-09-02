@@ -42,9 +42,9 @@ export default ({ service, toggleService, expandedId }: ItemsProps) => {
             />
           )}
 
-          <p className="text-base md:text-lg font-normal text-zinc-300 leading-relaxed">
+          <span className="text-base md:text-lg font-normal text-zinc-300 leading-relaxed">
             <HtmlRender htmlContent={service.description} />
-          </p>
+          </span>
 
           <div className="flex items-center justify-between pt-2 border-t border-white/5">
             <span className="text-sm uppercase tracking-wider text-zinc-400 font-medium">
