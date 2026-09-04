@@ -1,6 +1,7 @@
 import { pb } from "../api/PocketBase";
 import type { ItemsProps } from "../types/types";
 import HtmlRender from "./HtmlRender";
+import BookingButton from "./BookingButton";
 
 export default ({ service, toggleService, expandedId }: ItemsProps) => {
   const isOpen = expandedId === service.id;
@@ -54,6 +55,10 @@ export default ({ service, toggleService, expandedId }: ItemsProps) => {
               {service.price.toLocaleString("ru-RU")} ₽
             </span>
           </div>
+          <BookingButton
+            service={service}
+            className="mt-2 w-full rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+          />
         </div>
       </div>
     </div>

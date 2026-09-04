@@ -2,6 +2,7 @@ import { Mic, Headphones, Speaker, Cpu, ArrowRight } from "lucide-react";
 import { UI_CLASSES } from "../assets/const";
 import Section from "../components/Section";
 import Carousel from "../components/Сarousel";
+import BookingButton from "../components/BookingButton";
 
 // Картинки для Base
 import base1 from "../assets/studio/base/place-base-фото_1.webp";
@@ -83,10 +84,10 @@ export default function Studio() {
             </div>
 
             {/* CTA Button */}
-            <button className={`${UI_CLASSES.buttonBase} ${UI_CLASSES.buttonSecondary}`}>
+            <BookingButton className={`${UI_CLASSES.buttonBase} ${UI_CLASSES.buttonSecondary}`}>
               Забронировать
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </BookingButton>
           </div>
         </div>
 
@@ -146,10 +147,10 @@ export default function Studio() {
             </div>
 
             {/* CTA Button */}
-            <button className={`${UI_CLASSES.buttonBase} ${UI_CLASSES.buttonSecondary}`}>
+            <BookingButton className={`${UI_CLASSES.buttonBase} ${UI_CLASSES.buttonSecondary}`}>
               Забронировать
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </BookingButton>
           </div>
         </div>
       </div>

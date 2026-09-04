@@ -4,16 +4,16 @@ import type { PortfolioItem } from "../types/types";
 import TgCircleCard, {
   PortfolioSkeletonCard,
 } from "../components/TgCircleCard";
-import useSWR from "swr";
 import { pb } from "../api/PocketBase";
 import Section from "../components/Section";
+import useSWRImmutable from "swr/immutable";
 
 const fetchPortfolio = async () => {
   return await pb.collection<PortfolioItem>("Portfolio").getFullList({});
 };
 
 export default () => {
-  const { data, isLoading, error } = useSWR<PortfolioItem[]>(
+  const { data, isLoading, error } = useSWRImmutable<PortfolioItem[]>(
     "portfolio",
     fetchPortfolio,
   );

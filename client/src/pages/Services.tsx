@@ -1,21 +1,12 @@
 import { useState } from "react";
 import ServiceItem from "../components/ServiceItem";
-import { pb } from "../api/PocketBase";
-import useSWR from "swr";
-import type { Service } from "../types/types";
 import Section from "../components/Section";
-
-const fetchServices = async () => {
-  return await pb.collection<Service>("Service").getFullList();
-};
+import { useServices } from "../api/Services";
 
 export default () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const { data, isLoading, error } = useSWR<Service[]>(
-    "fetchServices",
-    fetchServices,
-  );
+  const { data, isLoading, error } = useServices();
 
   const toggleService = (id: string) => {
     setExpandedId((prevId) => (prevId === id ? null : id));
@@ -46,10 +37,7 @@ export default () => {
   const col2 = data.filter((_, i) => i % 2 !== 0);
 
   return (
-    <Section
-      id="services"
-      title="Услуги"
-    >
+    <Section id="services" title="Услуги">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Первая колонка */}
         <div className="flex flex-col gap-6">

@@ -1,3 +1,4 @@
 node_modules
 pb/pb_data
 pb/pb_migrations
+test.js

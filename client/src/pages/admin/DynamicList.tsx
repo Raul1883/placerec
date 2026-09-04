@@ -45,10 +45,8 @@ export default () => {
     if (!confirm("Вы уверены, что хотите удалить эту запись?")) return;
     try {
       await pb.collection(currentConfig.collectionName).delete(recordId);
-      // Обновляем кэш SWR без перезагрузки страницы
       mutate();
     } catch (err) {
-      console.error("Ошибка удаления:", err);
     }
   };
 

@@ -45,7 +45,6 @@ export const DynamicEditor: React.FC<Props> = ({
 
       onSuccess?.();
     } catch (err) {
-      console.error("Ошибка сохранения:", err);
     } finally {
       setLoading(false);
     }
