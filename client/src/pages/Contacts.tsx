@@ -1,5 +1,13 @@
 import { UI_COLLORS } from "../assets/const";
 
+const contacts = [
+  { text: "Telegram", url: "https://t.me/placerecords" },
+  {
+    text: "ВКонтакте",
+    url: "https://vk.ru/place.records",
+  },
+];
+
 export default () => {
   return (
     <footer id="contact" className="py-12 px-6 ">
@@ -30,14 +38,16 @@ export default () => {
           >
             +7 (982) 671-01-90
           </a>
-          <a
-            href="https://t.me/placerecords"
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg border border-zinc-700 text-sm font-medium transition-all"
-          >
-            Telegram →
-          </a>
+          {contacts.map((x) => (
+            <a
+              href={x.url}
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg border border-zinc-700 text-sm font-medium transition-all"
+            >
+              {x.text} →
+            </a>
+          ))}
         </div>
       </div>
 
