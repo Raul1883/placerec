@@ -58,7 +58,9 @@ export default function BookingModal({
 
       await pb.collection("Claim").create(body);
       setSubmitted(true);
-    } catch (error) {}
+    } catch {
+      console.error();
+    }
   };
 
   return (

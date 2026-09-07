@@ -3,7 +3,11 @@ import type { ItemsProps } from "../types/types";
 import HtmlRender from "./HtmlRender";
 import BookingButton from "./BookingButton";
 
-export default ({ service, toggleService, expandedId }: ItemsProps) => {
+export default function ServiceItem({
+  service,
+  toggleService,
+  expandedId,
+}: ItemsProps) {
   const isOpen = expandedId === service.id;
 
   return (
@@ -63,4 +67,4 @@ export default ({ service, toggleService, expandedId }: ItemsProps) => {
       </div>
     </div>
   );
-};
+}

@@ -7,7 +7,7 @@ import { DynamicEditor } from "./DynamicEditor";
 import type { CollectionConfig } from "../../types/types";
 import HtmlRender from "../../components/HtmlRender";
 
-export default () => {
+export default function DynamicList() {
   const [selectedCollectionKey, setSelectedCollectionKey] = useState<string>(
     Object.keys(collectionsConfig)[0],
   );
@@ -46,7 +46,8 @@ export default () => {
     try {
       await pb.collection(currentConfig.collectionName).delete(recordId);
       mutate();
-    } catch (err) {
+    } catch {
+      alert("Что-то пошло не так, попробуйте позднее");
     }
   };
 
@@ -207,4 +208,4 @@ export default () => {
       </div>
     </div>
   );
-};
+}

@@ -12,7 +12,7 @@ const fetchPortfolio = async () => {
   return await pb.collection<PortfolioItem>("Portfolio").getFullList({});
 };
 
-export default () => {
+export default function Portfolio() {
   const { data, isLoading, error } = useSWRImmutable<PortfolioItem[]>(
     "portfolio",
     fetchPortfolio,
@@ -114,4 +114,4 @@ export default () => {
       </div>
     </Section>
   );
-};
+}

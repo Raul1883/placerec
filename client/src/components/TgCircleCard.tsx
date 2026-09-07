@@ -3,13 +3,13 @@ import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import type { CardProps } from "../types/types";
 import { pb } from "../api/PocketBase";
 
-export default ({
+export default function TgCircleCard({
   item,
   isActive,
   isMuted,
   onTogglePlay,
   onToggleMute,
-}: CardProps) => {
+}: CardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -128,7 +128,7 @@ export default ({
       </div>
     </div>
   );
-};
+}
 
 export const PortfolioSkeletonCard = () => {
   return (

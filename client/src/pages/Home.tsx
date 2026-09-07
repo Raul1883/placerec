@@ -5,7 +5,7 @@ import Portfolio from "./Portfolio";
 import Services from "./Services";
 import Studio from "./Studio";
 
-const SonusStudio = () => {
+export default function SonusStudio() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white font-sans selection:bg-white/30">
       <Header />
@@ -19,6 +19,4 @@ const SonusStudio = () => {
       </div>
     </div>
   );
-};
-
-export default SonusStudio;
+}

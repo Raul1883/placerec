@@ -3,7 +3,7 @@ import ServiceItem from "../components/ServiceItem";
 import Section from "../components/Section";
 import { useServices } from "../api/Services";
 
-export default () => {
+export default function Services() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const { data, isLoading, error } = useServices();
@@ -69,4 +69,4 @@ export default () => {
       </p>
     </Section>
   );
-};
+}

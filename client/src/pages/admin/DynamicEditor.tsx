@@ -44,7 +44,8 @@ export const DynamicEditor: React.FC<Props> = ({
       }
 
       onSuccess?.();
-    } catch (err) {
+    } catch {
+      alert("Что-то пошло не так, попробуйте позднее");
     } finally {
       setLoading(false);
     }

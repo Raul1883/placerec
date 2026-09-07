@@ -14,14 +14,20 @@ export default function Login() {
     try {
       await pb.collection("users").authWithPassword(email, password);
       navigate("/admin");
-    } catch (err) {
+    } catch {
       setError("Неверный логин или пароль");
     }
   };
 
   return (
-    <div className={UI_CLASSES.section + " flex items-center justify-center bg-zinc-950"}>
-      <div className={`max-w-md w-full p-8 rounded-2xl ${UI_CLASSES.cardBase} ${UI_CLASSES.cardDefault} space-y-8`}>
+    <div
+      className={
+        UI_CLASSES.section + " flex items-center justify-center bg-zinc-950"
+      }
+    >
+      <div
+        className={`max-w-md w-full p-8 rounded-2xl ${UI_CLASSES.cardBase} ${UI_CLASSES.cardDefault} space-y-8`}
+      >
         <div className={UI_CLASSES.headingCenter}>
           <h2 className={UI_CLASSES.title + " text-2xl md:text-3xl"}>
             Панель управления

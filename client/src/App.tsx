@@ -29,6 +29,7 @@ function App() {
 
             <Route element={<ProtectedRoute />}>
               <Route path="/admin" element={<AdminMainPage />} />
+              <Route path="/admin/:id" element={<AdminMainPage />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />

@@ -12,7 +12,7 @@ import pro4 from "../assets/studio/pro/place-pro-фото_4.webp";
 
 const images = [base1, pro1, base2, pro2, base3, pro3, base4, base5, pro4];
 
-export default () => {
+export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -46,7 +46,6 @@ export default () => {
           />
         ))}
       </div>
-      
 
       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent -z-10 pointer-events-none" />
 
@@ -96,4 +95,4 @@ export default () => {
       </div>
     </section>
   );
-};
+}

@@ -5,7 +5,7 @@ interface HtmlContent {
   htmlContent: string;
 }
 
-export default ({ htmlContent }: HtmlContent) => {
+export default function HtmlRender({ htmlContent }: HtmlContent) {
   const sanitizedHtml = useMemo(() => {
     return DOMPurify.sanitize(htmlContent, {
       ADD_ATTR: ["allow", "allowfullscreen", "frameborder", "target"],
@@ -18,4 +18,4 @@ export default ({ htmlContent }: HtmlContent) => {
       dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
     />
   );
-};
+}

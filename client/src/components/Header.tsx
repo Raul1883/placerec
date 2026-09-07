@@ -1,6 +1,6 @@
 import NavButton from "./NavButton";
 
-export default () => {
+export default function Header() {
   return (
     <header className="hidden md:block sticky top-0 z-50 w-full bg-transparent backdrop-blur-none">
       <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
@@ -18,4 +18,4 @@ export default () => {
       </nav>
     </header>
   );
-};
+}

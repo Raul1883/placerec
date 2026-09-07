@@ -9,14 +9,14 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-export default ({
+export default function Section({
   id,
   className = "py-20 md:py-24 bg-neutral-950 text-white selection:bg-cyan-500 selection:text-black overflow-hidden",
   containerClassName = "max-w-6xl mx-auto px-4",
   title,
   subtitle,
   children,
-}: SectionProps) => {
+}: SectionProps) {
   return (
     <section id={id} className={`relative ${className}`}>
       <div className={containerClassName}>
@@ -40,4 +40,4 @@ export default ({
       </div>
     </section>
   );
-};
+}

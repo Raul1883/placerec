@@ -5,7 +5,7 @@ interface CarouselProps {
   interval?: number;
 }
 
-export default ({ images, interval = 5000 }: CarouselProps) => {
+export default function Carousel({ images, interval = 5000 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -73,4 +73,4 @@ export default ({ images, interval = 5000 }: CarouselProps) => {
       )}
     </div>
   );
-};
+}
