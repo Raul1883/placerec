@@ -54,6 +54,7 @@ export default function BookingModal({
         service: serviceName,
         dateTime: form.dateTime,
         comment: form.comment,
+        status: "new",
       };
 
       await pb.collection("Claim").create(body);
